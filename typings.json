@@ -2,6 +2,8 @@
 	"name": "node_seed",
 	"dependencies": {},
 	"globalDependencies": {
+		"mongoose": "registry:dt/mongoose#4.5.9+20160826204928",
+		"mongoose-promise": "registry:dt/mongoose-promise#4.5.4+20160822161941",
 		"node": "registry:dt/node#6.0.0+20160907173219"
 	}
 }
