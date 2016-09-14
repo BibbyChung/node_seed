@@ -1,7 +1,7 @@
 export class abc {
 
-    getResult() {
-        return 22;
+    getResult(arg: string) {
+        return arg + arg;
     }
 
 }
