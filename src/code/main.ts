@@ -1,53 +1,48 @@
 /// <reference path="./../../typings/index.d.ts" />
 
-import {UnitOfWork} from "mongoose-adapter";
 import {helper} from "./helper";
-import {ArticleRepository, CommentRepository, IComment} from "./repository";
+import {MyUnitOfWork} from "./myUnitOfWork";
+import {ArticleRep, CommentRep, IComment} from "./repository";
 
 // ==== create data =====
 
 
 export var funcAsync = async () => {
 
-    let unitOfWork = new UnitOfWork();
-    let aRep = new ArticleRepository(unitOfWork);
-    let cRep = new CommentRepository(unitOfWork);
+    let myDb = new MyUnitOfWork();
 
     //===create data===
-    // let aEntity = aRep.createNewEntity();
+    // let aEntity = myDb.reps.articleRep.createNewEntity();
     // aEntity._id = helper.getUUID();
     // aEntity.title = "articleTitle1";
     // aEntity.content = "articleContent1";
     // aEntity.dtCreated = new Date();
-    // aRep.add(aEntity);
+    // myDb.add(aEntity);
 
-    // let cEntity1 = cRep.createNewEntity();
+    // let cEntity1 = myDb.reps.commentRep.createNewEntity();
     // cEntity1._id = helper.getUUID();
     // cEntity1.article = aEntity._id;
     // cEntity1.content = "commentContent1";
     // cEntity1.dtCreated = new Date();
-    // cRep.add(cEntity1);
+    // myDb.add(cEntity1);
 
-    // let cEntity2 = cRep.createNewEntity();
+    // let cEntity2 = myDb.reps.commentRep.createNewEntity();
     // cEntity2._id = helper.getUUID();
     // cEntity2.article = aEntity._id;
     // cEntity2.content = "commentContent2";
     // cEntity2.dtCreated = new Date();
-    // cRep.add(cEntity2);
+    // myDb.add(cEntity2);
 
     // aEntity.comments = [
     //     cEntity1._id,
     //     cEntity2._id
     // ];
 
-    // await unitOfWork.saveChangeAsync();
+    // await myDb.saveChangeAsync();
 
 
     // ===get data===
-    // await aRep.getAll();
-    // await cRep.getAll();
-
-    // let articleData = await aRep.getAll()
+    // let articleData = await myDb.reps.articleRep.getAll()
     //     .find({})
     //     .populate({
     //         path: "comments",
@@ -58,7 +53,7 @@ export var funcAsync = async () => {
 
     // console.log("============");
 
-    // let commentData = await cRep.getAll()
+    // let commentData = await myDb.reps.commentRep.getAll()
     //     .find({})
     //     .populate({
     //         path: "article",
@@ -70,20 +65,20 @@ export var funcAsync = async () => {
 
 
     //===remove data===
-    // let aData = await aRep.getAll()
+    // let aData = await myDb.reps.articleRep.getAll()
     //     .find()
     //     .exec();
     // for (let a of aData) {
-    //     aRep.remove(a);
+    //     myDb.remove(a);
     // }
 
-    // let cData = await cRep.getAll()
+    // let cData = await myDb.reps.commentRep.getAll()
     //     .find()
     //     .exec();
     // for (let c of cData) {
-    //     cRep.remove(c);
+    //     myDb.remove(c);
     // }
-    // await unitOfWork.saveChangeAsync();
+    // await myDb.saveChangeAsync();
 
 
 }

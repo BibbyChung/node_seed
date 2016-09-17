@@ -1,9 +1,11 @@
+/// <reference path="./../../typings/index.d.ts" />
+
 import * as mongoose from "mongoose";
-import {BaseRepository, IUnitOfWork} from "mongoose-adapter";
+import {UnitOfWorkBase, RepositoryBase} from "mongoose-adapter";
 
-export class ArticleRepository extends BaseRepository<IArticle> {
+export class ArticleRep extends RepositoryBase<IArticle> {
 
-    constructor(unitOfWork: IUnitOfWork) {
+    constructor(unitOfWork: UnitOfWorkBase) {
         super(unitOfWork);
     }
 
@@ -35,10 +37,9 @@ export interface IArticle extends mongoose.Document {
     dtCreated: Date
 }
 
+export class CommentRep extends RepositoryBase<IComment> {
 
-export class CommentRepository extends BaseRepository<IComment> {
-
-    constructor(unitOfWork: IUnitOfWork) {
+    constructor(unitOfWork: UnitOfWorkBase) {
         super(unitOfWork);
     }
 
