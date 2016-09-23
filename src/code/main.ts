@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+import {AppHelper} from "./appHelper";
 
 export var fn = () => {
 
@@ -8,28 +9,25 @@ export var fn = () => {
         { name: 'pebbles', age: 18, birthday: new Date(1990, 5, 10) }
     ];
 
-
     //map
     let userName = _.chain(users)
         .map(user => user.name)
         .join(",")
         .value();
-
-    console.log(userName);
+    AppHelper.consoleWrite("user name with ,", userName);
 
     //where
     let oldUsers = _.chain(users)
         .filter(a => a.age >= 36)
         .value();
-    console.log(oldUsers);
-
+    AppHelper.consoleWrite("oldUsers", oldUsers);
 
     //sort (small to big)
     let sortUsers = _.chain(users)
         .sortBy(a => a.birthday)
         .reverse()
         .value();
-    console.log(sortUsers)
+    AppHelper.consoleWrite("sortUsers", sortUsers);
 
 
 
