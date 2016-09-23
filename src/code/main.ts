@@ -1,6 +1,6 @@
 /// <reference path="./../../typings/index.d.ts" />
 
-import {helper} from "./helper";
+import {AppHelper} from "./appHelper";
 import {MyUnitOfWork} from "./myUnitOfWork";
 import {ArticleRep, CommentRep, IComment} from "./repository";
 
@@ -13,21 +13,21 @@ export var funcAsync = async () => {
 
     //===create data===
     // let aEntity = myDb.reps.articleRep.createNewEntity();
-    // aEntity._id = helper.getUUID();
+    // aEntity._id = AppHelper.getUUID();
     // aEntity.title = "articleTitle1";
     // aEntity.content = "articleContent1";
     // aEntity.dtCreated = new Date();
     // myDb.add(aEntity);
 
     // let cEntity1 = myDb.reps.commentRep.createNewEntity();
-    // cEntity1._id = helper.getUUID();
+    // cEntity1._id = AppHelper.getUUID();
     // cEntity1.article = aEntity._id;
     // cEntity1.content = "commentContent1";
     // cEntity1.dtCreated = new Date();
     // myDb.add(cEntity1);
 
     // let cEntity2 = myDb.reps.commentRep.createNewEntity();
-    // cEntity2._id = helper.getUUID();
+    // cEntity2._id = AppHelper.getUUID();
     // cEntity2.article = aEntity._id;
     // cEntity2.content = "commentContent2";
     // cEntity2.dtCreated = new Date();
