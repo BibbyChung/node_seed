@@ -16,6 +16,16 @@ export var fn = () => {
         .value();
     AppHelper.consoleWrite("user name with ,", userName);
 
+    let newObjectArr = _.chain(users)
+        .filter(a => a.age >= 36)
+        .map(a => {
+            return {
+                name: a.name, age: a.age
+            };
+        })
+        .value();
+    AppHelper.consoleWrite("newObject", newObjectArr);
+
     //where
     let oldUsers = _.chain(users)
         .filter(a => a.age >= 36)
@@ -28,6 +38,22 @@ export var fn = () => {
         .reverse()
         .value();
     AppHelper.consoleWrite("sortUsers", sortUsers);
+
+
+    //first
+    let firstUser = _.chain(users)
+        .filter(a => a.age == 40)
+        .value()[0];
+    AppHelper.consoleWrite("first user", firstUser);
+
+    let firstUserEmpty = _.chain(users)
+        .filter(a => a.age == 41)
+        .value()[0];
+    AppHelper.consoleWrite("first user is empty", firstUserEmpty)
+    AppHelper.consoleWrite("first user is empty(boolean)", firstUserEmpty == undefined)
+
+
+
 
 
 
