@@ -6,7 +6,8 @@ export var fn = () => {
     let users = [
         { name: 'barney', age: 36, birthday: new Date(1981, 1, 20) },
         { name: 'fred', age: 40, birthday: new Date(1933, 4, 3) },
-        { name: 'pebbles', age: 18, birthday: new Date(1990, 5, 10) }
+        { name: 'pebbles', age: 18, birthday: new Date(1990, 5, 10) },
+        { name: 'Mary', age: 36, birthday: new Date(1993, 6, 10) }
     ];
 
     //map
@@ -53,10 +54,15 @@ export var fn = () => {
     AppHelper.consoleWrite("first user is empty(boolean)", firstUserEmpty == undefined)
 
 
-
-
-
-
+    //group
+    let group = _.chain(users)
+        .groupBy(a => a.age) //return dictionary
+        .value();
+    AppHelper.consoleWrite("group", group);
+    for (let k in group) {
+        var v = group[k];
+        AppHelper.consoleWrite("k,v", v);
+    }
 
 };
 
