@@ -61,8 +61,18 @@ export var fn = () => {
     AppHelper.consoleWrite("group", group);
     for (let k in group) {
         var v = group[k];
-        AppHelper.consoleWrite("k,v", v);
+        AppHelper.consoleWrite(`key_${k},value`, v);
     }
+
+    //pairs
+    let pairs = _.chain(users)
+        .map(a => {
+            //return [a.name, a.age]
+            return [a.age, a.name];
+        })
+        .fromPairs()
+        .value();
+    AppHelper.consoleWrite("pairs", pairs);
 
 };
 
