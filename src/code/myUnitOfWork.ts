@@ -2,7 +2,7 @@
 
 //myUnitOfWork.ts
 import {UnitOfWorkBase} from "mongoose-adapter";
-import {ArticleRep, CommentRep} from "./repository";
+import {PersonRepository, IPerson, IAddress} from "./repository";
 
 export class MyUnitOfWork extends UnitOfWorkBase {
 
@@ -11,8 +11,7 @@ export class MyUnitOfWork extends UnitOfWorkBase {
     }
 
     reps = {
-        articleRep: new ArticleRep(this),
-        commentRep: new CommentRep(this)
+        personRep: new PersonRepository(this)
     };
 
 }

@@ -3,22 +3,23 @@
 import * as mongoose from "mongoose";
 import {UnitOfWorkBase, RepositoryBase} from "mongoose-adapter";
 
-export class ArticleRep extends RepositoryBase<IArticle> {
+
+export class PersonRepository extends RepositoryBase<IPerson>{
 
     constructor(unitOfWork: UnitOfWorkBase) {
         super(unitOfWork);
     }
 
     getDocumentName() {
-        return "Article";
+        return "Person";
     }
 
     getSchema() {
 
         let schema = {
             _id: { type: String, index: { unique: true } },
-            comments: [{ type: String }],
-            title: { type: String },
+            name: [{ type: String }],
+            age: { type: Number },
             content: { type: String },
             dtCreated: { type: Date }
         };
@@ -29,42 +30,19 @@ export class ArticleRep extends RepositoryBase<IArticle> {
 
 }
 
-export interface IArticle extends mongoose.Document {
-    _id: string;
-    title: string,
-    comments: [string | IComment],
-    content: string,
-    dtCreated: Date
-}
+export interface IPerson extends mongoose.Document {
 
-export class CommentRep extends RepositoryBase<IComment> {
-
-    constructor(unitOfWork: UnitOfWorkBase) {
-        super(unitOfWork);
-    }
-
-    getDocumentName() {
-        return "Comment";
-    }
-
-    getSchema() {
-
-        let userSchema = {
-            _id: { type: String, index: { unique: true } },
-            article: { type: String },
-            content: { type: String },
-            dtCreated: { type: Date }
-        };
-        let s = new mongoose.Schema(userSchema);
-        return s;
-
-    }
+    name: string,
+    age: number;
+    birthday: Date;
+    Address: IAddress[];
 
 }
 
-export interface IComment extends mongoose.Document {
-    _id: string;
-    article: string | IArticle;
-    content: string,
-    dtCreated: Date
+export interface IAddress extends mongoose.Document {
+
+    country: string,
+    city: string,
+    detailAddress: string;
+
 }

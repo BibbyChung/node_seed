@@ -2,7 +2,7 @@
 
 import {AppHelper} from "./appHelper";
 import {MyUnitOfWork} from "./myUnitOfWork";
-import {ArticleRep, CommentRep, IComment} from "./repository";
+import {PersonRepository, IPerson, IAddress} from "./repository";
 
 // ==== create data =====
 
