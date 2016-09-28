@@ -18,10 +18,15 @@ export class PersonRepository extends RepositoryBase<IPerson>{
 
         let schema = {
             _id: { type: String, index: { unique: true } },
-            name: [{ type: String }],
+            name: { type: String },
             age: { type: Number },
-            content: { type: String },
-            dtCreated: { type: Date }
+            birthday: { type: Date },
+            address: [{
+                country: String,
+                city: String,
+                detailAddress: String
+            }]
+
         };
         let s = new mongoose.Schema(schema);
         return s;
@@ -32,14 +37,15 @@ export class PersonRepository extends RepositoryBase<IPerson>{
 
 export interface IPerson extends mongoose.Document {
 
+    _id: string,
     name: string,
     age: number;
     birthday: Date;
-    Address: IAddress[];
+    address: IAddress[];
 
 }
 
-export interface IAddress extends mongoose.Document {
+export interface IAddress {
 
     country: string,
     city: string,
