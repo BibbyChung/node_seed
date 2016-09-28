@@ -2,47 +2,44 @@
 
 import {AppHelper} from "./appHelper";
 import {MyUnitOfWork} from "./myUnitOfWork";
-import {PersonRepository, IPerson, IAddress} from "./repository";
-
-// ==== create data =====
-
+import {IPerson, IAddress} from "./repository";
 
 export var funcAsync = async () => {
 
     let myDb = new MyUnitOfWork();
 
     //add a entity
-    let nEntity = myDb.reps.personRep.createNewEntity();
-    nEntity._id = AppHelper.getUUID();
-    nEntity.name = "Bibby";
-    nEntity.age = 28;
-    nEntity.birthday = new Date(1981, 0, 8);
-    nEntity.address = [
-        {
-            country: "Taiwan",
-            city: "Taipei",
-            detailAddress: "Taipei, Taiwan"
-        },
-        {
-            country: "China",
-            city: "Shangshi",
-            detailAddress: "Shangshi, China"
-        }
-    ];
-    myDb.add(nEntity);
+    // let nEntity = myDb.reps.personRep.createNewEntity();
+    // nEntity._id = AppHelper.getUUID();
+    // nEntity.name = "Bibby";
+    // nEntity.age = 28;
+    // nEntity.birthday = new Date(1981, 0, 8);
+    // nEntity.address = [
+    //     {
+    //         country: "Taiwan",
+    //         city: "Taipei",
+    //         detailAddress: "Taipei, Taiwan"
+    //     },
+    //     {
+    //         country: "China",
+    //         city: "Shangshi",
+    //         detailAddress: "Shangshi, China"
+    //     }
+    // ];
+    // myDb.add(nEntity);
 
-    let nEntity2 = myDb.reps.personRep.createNewEntity();
-    nEntity2._id = AppHelper.getUUID();
-    nEntity2.name = "Mary";
-    nEntity2.age = 18;
-    nEntity2.address = [
-        {
-            country: "Taiwan",
-            city: "Taichung",
-            detailAddress: null
-        }
-    ];
-    myDb.add(nEntity2);
+    // let nEntity2 = myDb.reps.personRep.createNewEntity();
+    // nEntity2._id = AppHelper.getUUID();
+    // nEntity2.name = "Mary";
+    // nEntity2.age = 18;
+    // nEntity2.address = [
+    //     {
+    //         country: "Taiwan",
+    //         city: "Taichung",
+    //         detailAddress: null
+    //     }
+    // ];
+    // myDb.add(nEntity2);
 
     //await myDb.saveChangeAsync();
 
