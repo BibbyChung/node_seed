@@ -1,6 +1,6 @@
-/// <reference path="./../../typings/index.d.ts" />
+
 import * as assert from "assert";
-import {abc} from "./../code/main"
+import { abc } from "./../code/main"
 
 let prepareToRun = (_self, tag: string) => {
 
@@ -30,8 +30,8 @@ export = function () {
     });
 
     this.Then(/^the result is "([^"]*)"$/, function (exp) {
-        
-        assert.equal(act,exp);
+
+        assert.equal(act, exp);
 
     });
 

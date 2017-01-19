@@ -130,11 +130,7 @@ gulp.task("create_ts_definitions", shell.task([
 
 //----------------------------------------------------------------------
 
-gulp.task("oo", (cb) => {
-    runSequence("run_cucumber", cb);
-});
-
-gulp.task('default', (cb) => {
+gulp.task('build', (cb) => {
     runSequence(
         "clean",
         [
