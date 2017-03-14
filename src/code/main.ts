@@ -1,5 +1,5 @@
 import * as _ from "lodash";
-import {AppHelper} from "./appHelper";
+import { AppHelper } from './common/appHelper';
 
 export var fn = () => {
 
@@ -75,4 +75,3 @@ export var fn = () => {
     AppHelper.consoleWrite("pairs", pairs);
 
 };
-
