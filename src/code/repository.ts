@@ -1,8 +1,5 @@
-/// <reference path="./../../typings/index.d.ts" />
-
 import * as mongoose from "mongoose";
 import {UnitOfWorkBase, RepositoryBase} from "mongoose-adapter";
-
 
 export class PersonRepository extends RepositoryBase<IPerson>{
     getCollectionName(): string {

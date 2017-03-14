@@ -1,8 +1,5 @@
-/// <reference path="./../../typings/index.d.ts" />
-
-//myUnitOfWork.ts
-import {UnitOfWorkBase} from "mongoose-adapter";
-import {PersonRepository, IPerson, IAddress} from "./repository";
+import { UnitOfWorkBase } from "mongoose-adapter";
+import { PersonRepository, IPerson, IAddress } from "./repository";
 
 export class MyUnitOfWork extends UnitOfWorkBase {
 
