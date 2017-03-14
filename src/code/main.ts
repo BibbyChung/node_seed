@@ -1,8 +1,6 @@
-/// <reference path="./../../typings/index.d.ts" />
-
-import {AppHelper} from "./appHelper";
-import {MyUnitOfWork} from "./myUnitOfWork";
-import {IPerson, IAddress} from "./repository";
+import { AppHelper } from './common/appHelper';
+import { MyUnitOfWork } from "./myUnitOfWork";
+import { IPerson, IAddress } from "./repository";
 
 export var funcAsync = async () => {
 
@@ -91,7 +89,4 @@ export var funcAsync = async () => {
         .exec();
     AppHelper.consoleWrite("array2", array2);
 
-
-
 }
-

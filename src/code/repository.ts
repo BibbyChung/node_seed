@@ -5,13 +5,12 @@ import {UnitOfWorkBase, RepositoryBase} from "mongoose-adapter";
 
 
 export class PersonRepository extends RepositoryBase<IPerson>{
+    getCollectionName(): string {
+          return "Person";
+    }
 
     constructor(unitOfWork: UnitOfWorkBase) {
         super(unitOfWork);
-    }
-
-    getDocumentName() {
-        return "Person";
     }
 
     getSchema() {
