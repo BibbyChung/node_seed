@@ -1,3 +1,5 @@
+import { AppHelper } from './common/appHelper';
+
 export class abc {
 
     getResult(arg: string) {
@@ -6,3 +8,6 @@ export class abc {
 
 }
 
+let obj = new abc();
+let r = obj.getResult("Bibby");
+AppHelper.consoleWrite("result", r);

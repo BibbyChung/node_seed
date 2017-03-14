@@ -16,7 +16,7 @@ let path = require('path');
 let tsCompiler = function (
     pathArr,
     tsconfigPath,
-    sroucemapPostfix,
+    sourceRoot,
     targetPath,
     isUglify) {
 
@@ -27,14 +27,7 @@ let tsCompiler = function (
         //.pipe(uglify())
         .pipe(sourcemaps.write("./", {
             includeContent: false,
-            sourceRoot: function (file) {
-                let arr = file.relative.split("/");
-                let prefix = "";
-                for (let i = 0; i < arr.length; i++) {
-                    prefix += "../";
-                }
-                return prefix + sroucemapPostfix;
-            }
+            sourceRoot: sourceRoot,
         }))
         .pipe(gulp.dest(targetPath));
 };
@@ -73,13 +66,24 @@ gulp.task('ts_compile_test', () => {
 
     let m = merge();
 
-    let test = tsCompiler(
+    let code = tsCompiler(
         [
-            "./src/**/*.ts",
+            "./src/code/**/*.ts",
         ],
         "tsconfig_test.json",
-        "src",
-        "./test",
+        "../../src/code",
+        "./test/code",
+        false
+    );
+    m.add(code);
+
+    let test = tsCompiler(
+        [
+            "./src/code.test/**/*.ts",
+        ],
+        "tsconfig_test.json",
+        "../../src/code",
+        "./test/code.test",
         false
     );
     m.add(test);
@@ -97,22 +101,11 @@ gulp.task('ts_compile_dist', () => {
             "./src/code/**/*.ts",
         ],
         "tsconfig.json",
-        "src/code",
+        "../../src/code",
         "./dist/code",
         false
     );
     m.add(code);
-
-    let main = tsCompiler(
-        [
-            "./src/main.ts",
-        ],
-        "tsconfig.json",
-        "src",
-        "./dist/",
-        false
-    );
-    m.add(main);
 
     return m;
 
