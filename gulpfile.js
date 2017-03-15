@@ -92,24 +92,29 @@ gulp.task('ts_compile_test', () => {
 
 });
 
-gulp.task('ts_compile_dist', () => {
+// gulp.task('ts_compile_dist', () => {
 
-    let m = merge();
+//     let m = merge();
 
-    let code = tsCompiler(
-        [
-            "./src/code/**/*.ts",
-        ],
-        "tsconfig.json",
-        "../../src/code",
-        "./dist/code",
-        false
-    );
-    m.add(code);
+//     let code = tsCompiler(
+//         [
+//             "./src/code/**/*.ts",
+//         ],
+//         "tsconfig.json",
+//         "../../src/code",
+//         "./dist/code",
+//         false
+//     );
+//     m.add(code);
 
-    return m;
+//     return m;
 
-});
+// });
+
+gulp.task('ts_compile_dist', shell.task([
+    'node fuse.server.js'
+    //'cucumber.js --format pretty'
+]));
 
 gulp.task("run_cucumber", shell.task([
     'cucumber.js test/**/*.feature --format progress'
@@ -127,13 +132,13 @@ gulp.task('build', (cb) => {
     runSequence(
         "clean",
         [
-            "ts_compile_test",
+            //"ts_compile_test",
             "ts_compile_dist",
-            "copy_feature_to_test",
+            //"copy_feature_to_test",
         ],
-        [
-            "run_cucumber",
-        ],
+        // [
+        //     "run_cucumber"
+        // ],
         cb
     );
 });
