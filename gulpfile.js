@@ -72,7 +72,7 @@ gulp.task('ts_compile_test', () => {
         [
             "./src/code/**/*.ts",
         ],
-        "tsconfig_test.json",
+        "./tsconfig.test.json",
         "../../src/code",
         "./test/code",
         false
@@ -83,8 +83,8 @@ gulp.task('ts_compile_test', () => {
         [
             "./src/code.test/**/*.ts",
         ],
-        "tsconfig_test.json",
-        "../../src/code",
+        "./tsconfig.test.json",
+        "../../src/code.test",
         "./test/code.test",
         false
     );
@@ -100,6 +100,7 @@ gulp.task("ts_compile_dist",()=>{
         homeDir: './src/code',
         sourcemaps: true,
         outFile: './dist/code/main.js',
+        tsConfig: './tsconfig.node.json',
         //debug: true,
         plugins: [
             [
@@ -139,11 +140,13 @@ gulp.task('build', (cb) => {
         "clean",
         [
             "ts_compile_test",
-            "ts_compile_dist",
             "copy_feature_to_test",
         ],
         [
             "run_cucumber"
+        ],
+        [
+            "ts_compile_dist"
         ],
         cb
     );

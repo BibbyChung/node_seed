@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
+        "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "isolatedModules": true
+        "isolatedModules": true,
+        "sourceRoot": "../../src/code"
     },
     "exclude": [
         "node_modules",
