@@ -4,6 +4,10 @@
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/@types/assert/-/assert-0.0.31.tgz#d1f70595a72d02555b7ecd28eb4c68f1b6918d6d"
 
+"@types/es6-shim@^0.31.32":
+  version "0.31.32"
+  resolved "https://registry.yarnpkg.com/@types/es6-shim/-/es6-shim-0.31.32.tgz#8196c09e1e40ac977c713bf258090989f501d8ff"
+
 "@types/node@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.0.tgz#c081147b109da5f9c57af70571771be97ce9c0ba"
@@ -1238,6 +1242,10 @@ to-absolute-glob@^0.1.1:
   resolved "https://registry.yarnpkg.com/to-absolute-glob/-/to-absolute-glob-0.1.1.tgz#1cdfa472a9ef50c239ee66999b662ca0eb39937f"
   dependencies:
     extend-shallow "^2.0.1"
+
+typescript@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.2.1.tgz#4862b662b988a4c8ff691cc7969622d24db76ae9"
 
 typescript@1.8.10:
   version "1.8.10"
