@@ -8,16 +8,16 @@ export class abc {
 
     }
 
-    getDataAsync(){
+    // getDataAsync(){
 
-        var p =new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                resolve(1000);
-            },500)
-        });
-        return p;
+    //     var p =new Promise((resolve,reject)=>{
+    //         setTimeout(()=>{
+    //             resolve(1000);
+    //         },500)
+    //     });
+    //     return p;
 
-    }
+    // }
 
 }
 
@@ -25,8 +25,8 @@ let obj = new abc();
 let r = obj.getResult("Bibby");
 AppHelper.consoleWrite("result", r);
 
-let fun = async () => {
-    return await obj.getDataAsync();
-}
+// let fun = async () => {
+//     return await obj.getDataAsync();
+// }
 
-AppHelper.consoleWrite("async", fun());
+// AppHelper.consoleWrite("async", fun());
