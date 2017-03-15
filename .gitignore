@@ -3,4 +3,5 @@ node_modules
 test
 symbols.json
 typings
+.fusebox
 
