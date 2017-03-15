@@ -11,6 +11,8 @@ let ts = require("gulp-typescript");
 let sourcemaps = require("gulp-sourcemaps");
 let path = require('path');
 
+const fsbx = require('fuse-box');
+
 //=================================== Method ===================================
 
 let tsCompiler = function (
@@ -92,29 +94,33 @@ gulp.task('ts_compile_test', () => {
 
 });
 
-// gulp.task('ts_compile_dist', () => {
+gulp.task("ts_compile_dist",()=>{
 
-//     let m = merge();
+    const fuseBox = fsbx.FuseBox.init({
+        homeDir: './src/code',
+        sourcemaps: true,
+        outFile: './dist/code/main.js',
+        //debug: true,
+        plugins: [
+            [
+                fsbx.SassPlugin({outputStyle: 'compressed'}),
+                fsbx.CSSPlugin({})
+            ],
+            fsbx.TypeScriptHelpers(),
+            fsbx.JSONPlugin(),
+            fsbx.HTMLPlugin({useDefault: false})
+        ]
+    });
 
-//     let code = tsCompiler(
-//         [
-//             "./src/code/**/*.ts",
-//         ],
-//         "tsconfig.json",
-//         "../../src/code",
-//         "./dist/code",
-//         false
-//     );
-//     m.add(code);
+    fuseBox
+        .bundle(">main.ts")
+    // .devServer('>app.ts', {
+    //     port: 4446,
+    //     httpServer: false
+    // });
+    ;
 
-//     return m;
-
-// });
-
-gulp.task('ts_compile_dist', shell.task([
-    'node fuse.server.js'
-    //'cucumber.js --format pretty'
-]));
+});
 
 gulp.task("run_cucumber", shell.task([
     'cucumber.js test/**/*.feature --format progress'
@@ -132,13 +138,13 @@ gulp.task('build', (cb) => {
     runSequence(
         "clean",
         [
-            //"ts_compile_test",
+            "ts_compile_test",
             "ts_compile_dist",
-            //"copy_feature_to_test",
+            "copy_feature_to_test",
         ],
-        // [
-        //     "run_cucumber"
-        // ],
+        [
+            "run_cucumber"
+        ],
         cb
     );
 });

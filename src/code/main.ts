@@ -1,9 +1,9 @@
 import { AppHelper } from './common/appHelper';
 
-class abc {
+export class abc {
 
     getResult(arg: string) {
-        return `${arg}_${arg}`;
+        return `${arg}${arg}`;
     }
 
     getDataAsync() {
