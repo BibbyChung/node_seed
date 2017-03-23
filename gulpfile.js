@@ -3,6 +3,8 @@
 let gulp = require("gulp");
 let shell = require("gulp-shell");
 let merge = require("merge-stream");
+var merge2 = require('merge2');
+
 let rimraf = require("rimraf");
 let runSequence = require("run-sequence");
 let through = require('through2');
@@ -20,16 +22,24 @@ let tsCompiler = function (
     targetPath,
     isUglify) {
 
-    return gulp.src(pathArr)
+    let tsResult = gulp.src(pathArr)
         .pipe(sourcemaps.init())
-        .pipe(ts(ts.createProject(tsconfigPath)))
-        .js
-        //.pipe(uglify())
-        .pipe(sourcemaps.write("./", {
-            includeContent: false,
-            sourceRoot: sourceRoot,
-        }))
-        .pipe(gulp.dest(targetPath));
+        .pipe(ts(ts.createProject(tsconfigPath, { "isolatedModules": false })));
+
+    return merge2([
+        tsResult
+            .js
+            //.pipe(uglify())
+            .pipe(sourcemaps.write("./", {
+                includeContent: false,
+                sourceRoot: sourceRoot,
+            }))
+            .pipe(gulp.dest(targetPath)),
+        tsResult
+            .dts
+            .pipe(gulp.dest(targetPath))
+    ]);
+
 };
 
 let getCopyFilesPipe = (sourcePatten, targetPath) => {
@@ -113,11 +123,6 @@ gulp.task('ts_compile_dist', () => {
 
 gulp.task("run_cucumber", shell.task([
     'cucumber.js test/**/*.feature --format progress'
-    //'cucumber.js --format pretty'
-]));
-
-gulp.task("create_ts_definitions", shell.task([
-    'tsc --declaration ./src/main.ts'
     //'cucumber.js --format pretty'
 ]));
 
