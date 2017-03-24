@@ -1,9 +1,9 @@
 import * as mongoose from "mongoose";
-import {UnitOfWorkBase, RepositoryBase} from "mongoose-adapter";
+import { UnitOfWorkBase, RepositoryBase } from "mongoose-adapter";
 
 export class PersonRepository extends RepositoryBase<IPerson>{
     getCollectionName(): string {
-          return "Person";
+        return "Person";
     }
 
     constructor(unitOfWork: UnitOfWorkBase) {

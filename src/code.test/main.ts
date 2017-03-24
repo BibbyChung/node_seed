@@ -1,6 +1,6 @@
 import * as assert from "assert";
-import {MyUnitOfWork} from "./../code/myUnitOfWork";
-import {funcAsync} from "./../code/main";
+import { MyUnitOfWork } from "./../code/myUnitOfWork";
+import { funcAsync } from "./../code/main";
 
 let prepareToRun = (_self, tag: string) => {
 
