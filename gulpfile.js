@@ -3,7 +3,6 @@
 let gulp = require("gulp");
 let shell = require("gulp-shell");
 let merge = require("merge-stream");
-var merge2 = require('merge2');
 
 let rimraf = require("rimraf");
 let runSequence = require("run-sequence");
@@ -24,24 +23,35 @@ let tsCompiler = function (
     targetPath,
     isUglify) {
 
-    let tsResult = gulp.src(pathArr)
+    let tscP = ts.createProject(tsconfigPath);
+
+    return gulp.src(pathArr)
         .pipe(sourcemaps.init())
-        .pipe(ts(ts.createProject(tsconfigPath, { "isolatedModules": false })));
+        .pipe(tscP())
+        .js
+        //.pipe(uglify())
+        .pipe(sourcemaps.write("./", {
+            includeContent: false,
+            sourceRoot: sourceRoot,
+        }))
+        .pipe(gulp.dest(targetPath));
 
-    return merge2([
-        tsResult
-            .js
-            //.pipe(uglify())
-            .pipe(sourcemaps.write("./", {
-                includeContent: false,
-                sourceRoot: sourceRoot,
-            }))
-            .pipe(gulp.dest(targetPath)),
-        tsResult
-            .dts
-            .pipe(gulp.dest(targetPath))
-    ]);
+};
 
+let tsdCompiler = function (
+    pathArr,
+    tsconfigPath,
+    targetPath
+    ) {
+
+    let tscP = ts.createProject(tsconfigPath, { 
+        "isolatedModules": false,
+    });
+
+    return gulp.src(pathArr)
+        .pipe(tscP())
+        .dts
+        .pipe(gulp.dest(targetPath));
 };
 
 let getCopyFilesPipe = (sourcePatten, targetPath) => {
@@ -133,6 +143,23 @@ gulp.task("ts_compile_dist",()=>{
 
 });
 
+gulp.task('tsd_compile_dist', () => {
+
+    let m = merge();
+
+    let code = tsdCompiler(
+        [
+            "./src/code/**/*.ts",
+        ],
+        "./tsconfig.node.json",
+        "./dist/code"
+    );
+    m.add(code);
+
+    return m;
+
+});
+
 gulp.task("run_cucumber", shell.task([
     'cucumber.js test/**/*.feature --format progress'
     //'cucumber.js --format pretty'
@@ -151,7 +178,8 @@ gulp.task('build', (cb) => {
             "run_cucumber"
         ],
         [
-            "ts_compile_dist"
+            "ts_compile_dist", 
+            //"tsd_compile_dist"           
         ],
         cb
     );
