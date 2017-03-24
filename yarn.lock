@@ -22,8 +22,8 @@
     "@types/mpromise" "*"
 
 "@types/mongoose@*", "@types/mongoose@^4.7.8":
-  version "4.7.8"
-  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.8.tgz#9dd829635c75198b3ba60b1626fd65ad5698ac8c"
+  version "4.7.9"
+  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.9.tgz#55131099e2ecf481081b60da954482c26ca24ac1"
   dependencies:
     "@types/mongodb" "*"
     "@types/node" "*"
@@ -33,8 +33,8 @@
   resolved "https://registry.yarnpkg.com/@types/mpromise/-/mpromise-0.5.29.tgz#2fa4d82c8ff594d927c79a3c1b27077b7fd9a547"
 
 "@types/node@*", "@types/node@^7.0.0":
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.8.tgz#25e4dd804b630c916ae671233e6d71f6ce18124a"
+  version "7.0.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.10.tgz#d860abb18c1b58b552c7c6cd8b2ba7adf6546fa3"
 
 acorn@4.X:
   version "4.0.11"
@@ -85,9 +85,15 @@ array-unique@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
 
-async@^1.5.0, async@^1.5.2:
+async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
+async@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.1.5.tgz#e587c68580994ac67fc56ff86d3ac56bdbe810bc"
+  dependencies:
+    lodash "^4.14.0"
 
 async@2.1.4:
   version "2.1.4"
@@ -655,18 +661,18 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-gulp-shell@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/gulp-shell/-/gulp-shell-0.5.2.tgz#a4959ca0651ad1c7bbfe70b2d0adbbb4e1aea98d"
+gulp-shell@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/gulp-shell/-/gulp-shell-0.6.3.tgz#2eaa6edfffa8bdff7a8f0b9f9852876f33331c6b"
   dependencies:
-    async "^1.5.0"
-    gulp-util "^3.0.7"
-    lodash "^4.0.0"
-    through2 "^2.0.0"
+    async "^2.1.5"
+    gulp-util "^3.0.8"
+    lodash "^4.17.4"
+    through2 "^2.0.3"
 
-gulp-sourcemaps@^1.6.0:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/gulp-sourcemaps/-/gulp-sourcemaps-1.11.1.tgz#b534376deab49387d406c3aebeb8beaf02ef3548"
+gulp-sourcemaps@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/gulp-sourcemaps/-/gulp-sourcemaps-2.4.1.tgz#8f65dc5c0d07b2fd5c88bc60ec7f13e56716bf74"
   dependencies:
     acorn "4.X"
     convert-source-map "1.X"
@@ -675,7 +681,7 @@ gulp-sourcemaps@^1.6.0:
     detect-newline "2.X"
     graceful-fs "4.X"
     source-map "0.X"
-    strip-bom "2.X"
+    strip-bom "3.X"
     through2 "2.X"
     vinyl "1.X"
 
@@ -689,17 +695,16 @@ gulp-sourcemaps@1.6.0:
     through2 "^2.0.0"
     vinyl "^1.0.0"
 
-gulp-typescript@^2.13.6:
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-2.14.1.tgz#bc00edf2ee71f09bda53fd1d0b873b571371d4de"
+gulp-typescript@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.1.6.tgz#6c67b84364cf3589a9ad6fdea2e3c0bc525c435e"
   dependencies:
     gulp-util "~3.0.7"
     source-map "~0.5.3"
     through2 "~2.0.1"
-    typescript "1.8.10"
     vinyl-fs "~2.4.3"
 
-gulp-util@*, gulp-util@^3.0.0, gulp-util@^3.0.7, gulp-util@~3.0.7:
+gulp-util@*, gulp-util@^3.0.0, gulp-util@^3.0.8, gulp-util@~3.0.7:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -934,9 +939,9 @@ isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
 
-isexe@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/isexe/-/isexe-1.1.2.tgz#36f3e22e60750920f5e7241a476a8c6a42275ad0"
+isexe@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
 
 isobject@^2.0.0:
   version "2.1.0"
@@ -1105,7 +1110,7 @@ lodash.templatesettings@^3.0.0:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
 
-lodash@^4.0.0, lodash@^4.14.0:
+lodash@^4.14.0, lodash@^4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -1121,7 +1126,7 @@ map-cache@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
 
-merge-stream@^1.0.0:
+merge-stream@^1.0.0, merge-stream@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-1.0.1.tgz#4041202d508a342ba00174008df0c251b8c135e1"
   dependencies:
@@ -1192,9 +1197,9 @@ mockgoose@^6.0.6, mockgoose@^6.0.8:
     q "^1.4.1"
     rimraf "^2.5.1"
 
-mongodb-core@2.1.8:
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.8.tgz#b33e0370d0a59d97b6cb1ec610527be9e95ca2c0"
+mongodb-core@2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.9.tgz#85aa71ee4fb716196e06b787557bf139f801daf5"
   dependencies:
     bson "~1.0.4"
     require_optional "~1.0.0"
@@ -1218,31 +1223,30 @@ mongodb-prebuilt@^5.0.6:
     spawn-sync "1.0.15"
     yargs "^3.26.0"
 
-mongodb@2.2.24:
-  version "2.2.24"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.24.tgz#80f40d6ec5bdec0ddecf0f9ce0144e794c46449a"
+mongodb@2.2.25:
+  version "2.2.25"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.25.tgz#d3b25dad00eda2bdfcbc996210ba082ac686a6b6"
   dependencies:
     es6-promise "3.2.1"
-    mongodb-core "2.1.8"
+    mongodb-core "2.1.9"
     readable-stream "2.1.5"
 
 mongoose-adapter@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/mongoose-adapter/-/mongoose-adapter-1.1.5.tgz#f07a9e9722cc8baa1f334a74b2f0f4ed4e076e20"
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/mongoose-adapter/-/mongoose-adapter-1.1.6.tgz#efd9cb79b6aab837168511c565ce4266945d0538"
   dependencies:
     mockgoose "^6.0.8"
-    mongoose "^4.7.0"
-    mpromise "^0.5.5"
+    mongoose "^4.9.1"
 
-mongoose@^4.6.0, mongoose@^4.7.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.9.0.tgz#5465fc3c1d4c9e43b035e9652412dcce3fa4d55c"
+mongoose@^4.6.0, mongoose@^4.9.1:
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.9.1.tgz#e621d9e7356f46d1e39980a71063857405fa9099"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
     hooks-fixed "2.0.0"
     kareem "1.2.1"
-    mongodb "2.2.24"
+    mongodb "2.2.25"
     mpath "0.2.1"
     mpromise "0.5.5"
     mquery "2.3.0"
@@ -1255,7 +1259,7 @@ mpath@0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/mpath/-/mpath-0.2.1.tgz#3a4e829359801de96309c27a6b2e102e89f9e96e"
 
-mpromise@^0.5.5, mpromise@0.5.5:
+mpromise@0.5.5:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/mpromise/-/mpromise-0.5.5.tgz#f5b24259d763acc2257b0a0c8c6d866fd51732e6"
 
@@ -1444,8 +1448,8 @@ process-nextick-args@~1.0.6:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
 
 q@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/q/-/q-1.4.1.tgz#55705bcd93c5f3673530c2c2cbc0c2b3addc286e"
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
 randomatic@^1.1.3:
   version "1.1.6"
@@ -1462,8 +1466,8 @@ read-all-stream@^3.0.0:
     readable-stream "^2.0.0"
 
 readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.1.5, readable-stream@^2.2.2:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.5.tgz#a0b187304e05bab01a4ce2b4cc9c607d5aa1d606"
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.6.tgz#8b43aed76e71483938d12a8d46c6cf1a00b1f816"
   dependencies:
     buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
@@ -1560,7 +1564,7 @@ resolve@^1.1.6, resolve@^1.1.7:
   dependencies:
     path-parse "^1.0.5"
 
-rimraf@^2.5.1, rimraf@^2.5.4:
+rimraf@^2.5.1, rimraf@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
   dependencies:
@@ -1692,11 +1696,15 @@ strip-bom@^1.0.0:
     first-chunk-stream "^1.0.0"
     is-utf8 "^0.2.0"
 
-strip-bom@^2.0.0, strip-bom@2.X:
+strip-bom@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-2.0.0.tgz#6219a85616520491f35788bdbf1447a99c7e6b0e"
   dependencies:
     is-utf8 "^0.2.0"
+
+strip-bom@3.X:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
 
 strip-dirs@^1.0.0:
   version "1.1.1"
@@ -1742,7 +1750,7 @@ through2@^0.6.0, through2@^0.6.1:
     readable-stream ">=1.0.33-1 <1.1.0-0"
     xtend ">=4.0.0 <4.1.0-0"
 
-through2@^2.0.0, through2@^2.0.1, through2@~2.0.0, through2@~2.0.1, through2@2.X:
+through2@^2.0.0, through2@^2.0.3, through2@~2.0.0, through2@~2.0.1, through2@2.X:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
   dependencies:
@@ -1772,10 +1780,6 @@ typedarray@^0.0.6:
 typescript@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.2.1.tgz#4862b662b988a4c8ff691cc7969622d24db76ae9"
-
-typescript@1.8.10:
-  version "1.8.10"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-1.8.10.tgz#b475d6e0dff0bf50f296e5ca6ef9fbb5c7320f1e"
 
 unc-path-regex@^0.1.0:
   version "0.1.2"
@@ -1884,10 +1888,10 @@ vinyl@^1.0.0, vinyl@1.X:
     replace-ext "0.0.1"
 
 which@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/which/-/which-1.2.12.tgz#de67b5e450269f194909ef23ece4ebe416fa1192"
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/which/-/which-1.2.14.tgz#9a87c4378f03e827cecaf1acdf56c736c01c14e5"
   dependencies:
-    isexe "^1.1.1"
+    isexe "^2.0.0"
 
 window-size@^0.1.4:
   version "0.1.4"
