@@ -56,11 +56,21 @@ export var fn = () => {
 
     //group
     let group = _.chain(users)
-        .groupBy(a => a.age) //return dictionary
+        .groupBy(a => a.age)
+        .map((value: any[], key) => {
+            return { key, value }
+        })
+        //.map((value, key) => ({ key, value }))
         .value();
     AppHelper.consoleWrite("group", group);
-    for (let k in group) {
-        var v = group[k];
+
+    //group-dictionary
+    let groupDic = _.chain(users)
+        .groupBy(a => a.age) //return dictionary
+        .value();
+    AppHelper.consoleWrite("groupDic", groupDic);
+    for (let k in groupDic) {
+        var v = groupDic[k];
         AppHelper.consoleWrite(`key_${k},value`, v);
     }
 
