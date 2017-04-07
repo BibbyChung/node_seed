@@ -84,4 +84,24 @@ export var fn = () => {
         .value();
     AppHelper.consoleWrite("pairs", pairs);
 
+    //exist, any
+    let existedUsers = [
+        { name: 'fred', age: 40, birthday: new Date(1933, 4, 3) },
+        { name: 'pebbles', age: 18, birthday: new Date(1990, 5, 10) }
+    ];
+
+    let filterUsers = _.chain(users)
+        .filter(user => {
+            let isExisted = _.chain(existedUsers)
+                    .some(eUser => {
+                        if (user.name == eUser.name && user.age == eUser.age)
+                            return true;
+                        return false;
+                    })
+                    .value();
+            return !isExisted;
+        })
+        .value();
+    AppHelper.consoleWrite("some", filterUsers);
+
 };
