@@ -93,15 +93,23 @@ export var fn = () => {
     let filterUsers = _.chain(users)
         .filter(user => {
             let isExisted = _.chain(existedUsers)
-                    .some(eUser => {
-                        if (user.name == eUser.name && user.age == eUser.age)
-                            return true;
-                        return false;
-                    })
-                    .value();
+                                .some(eUser => {
+                                    if (user.name == eUser.name && user.age == eUser.age)
+                                        return true;
+                                    return false;
+                                })
+                                .value();
             return !isExisted;
         })
         .value();
     AppHelper.consoleWrite("some", filterUsers);
+
+    //sum
+    let totalAgeTotal = _.chain(users)
+        //.filter(a => false)
+        .sumBy(a => a.age)
+        .value()
+    AppHelper.consoleWrite("sum age", totalAgeTotal);
+
 
 };
