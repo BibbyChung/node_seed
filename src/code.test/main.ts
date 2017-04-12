@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import {fn} from "./../code/main"
+import { testRun } from '../code/main';
 
 let prepareToRun = (_self, tag: string) => {
 
@@ -16,7 +16,7 @@ export = function () {
     prepareToRun(this, "@abcd");
 
     this.Then(/^result$/, function () {
-        fn();
+        testRun();
     });
 
 }
