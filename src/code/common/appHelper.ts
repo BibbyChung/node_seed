@@ -1,3 +1,5 @@
+let crypto = require('crypto');
+
 export class AppHelper {
 
     static consoleWrite(title: string, obj: any) {
@@ -26,6 +28,14 @@ export class AppHelper {
             text += possible.charAt(Math.floor(Math.random() * possible.length));
 
         return text;
+    }
+
+    static MD5(str){
+
+        let md5sum = crypto.createHash('md5');
+        let hash = md5sum.update(str).digest('hex')
+        return hash;
+
     }
 
 }
