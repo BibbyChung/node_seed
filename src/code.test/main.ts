@@ -1,39 +1,40 @@
 
-import * as assert from "assert";
-import { abc } from "./../code/main"
+import * as assert from 'assert';
+import { abc } from './../code/main';
 
-let prepareToRun = (_self, tag: string) => {
+// tslint:disable-next-line:variable-name
+const prepareToRun = (_self, tag: string) => {
 
-    _self.Before({ tags: [tag] }, async (scenario: any) => {
+  _self.Before({ tags: [tag] }, async (scenario: any) => {
 
-    });
-    _self.After({ tags: [tag] }, async (scenario) => {
+  });
+  _self.After({ tags: [tag] }, async (scenario) => {
 
-    });
+  });
 };
 
 export = function () {
 
-    prepareToRun(this, "@abcd");
+  prepareToRun(this, '@abcd');
 
-    let input;
-    this.Given(/^the input is "([^"]*)"$/, function (arg1) {
-        input = arg1;
-    });
+  let input;
+  this.Given(/^the input is "([^"]*)"$/, (arg1) => {
+    input = arg1;
+  });
 
-    let act;
-    this.When(/^run the method getResult$/, function () {
+  let act;
+  this.When(/^run the method getResult$/, () => {
 
-        var obj = new abc();
-        act = obj.getResult(input)
+    const obj = new abc();
+    act = obj.getResult(input);
 
-    });
+  });
 
-    this.Then(/^the result is "([^"]*)"$/, function (exp) {
+  this.Then(/^the result is "([^"]*)"$/, (exp) => {
 
-        assert.equal(act, exp);
+    assert.equal(act, exp);
 
-    });
+  });
 
-}
+};
 

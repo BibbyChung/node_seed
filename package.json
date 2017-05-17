@@ -22,7 +22,8 @@
 		"rimraf": "^2.6.1",
 		"run-sequence": "^1.2.2",
 		"typescript": "^2.2.1",
-		"through2": "^2.0.3"
+		"through2": "^2.0.3",
+		"tslint-config-airbnb": "^5.0.0"
 
 	}
 }
