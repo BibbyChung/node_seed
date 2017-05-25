@@ -1,32 +1,27 @@
 import { AppHelper } from './common/appHelper';
 import { MyException, MyExceptionTypeEnum } from './exceptions/myException';
 
-export class abc {
-
-  getResult(arg: string) {
-    return arg + arg;
-  }
-
-}
-
 class Person {
   name: string;
   getFullName() {
-    throw new MyException(MyExceptionTypeEnum.notImplement, 'notImplement');
+    throw new MyException('notImplement', MyExceptionTypeEnum.notImplement);
   }
 }
 
-try {
+export const run = () => {
 
-  const p = new Person();
-  p.getFullName();
+  try {
 
-} catch (e) {
+    const p = new Person();
+    p.getFullName();
 
-  const ex = e as MyException;
-  if (ex.type === MyExceptionTypeEnum.notImplement) 
-    AppHelper.consoleWrite('MyExceptionTypeEnum', ex.type);
-  
-  AppHelper.consoleWrite('e', e);
+  } catch (e) {
 
-}
+    const ex = e as MyException;
+    if (ex.type === MyExceptionTypeEnum.notImplement)
+      AppHelper.consoleWrite('MyExceptionTypeEnum', ex.type);
+
+    AppHelper.consoleWrite('e', e);
+
+  }
+};

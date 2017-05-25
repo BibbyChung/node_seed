@@ -5,8 +5,8 @@ export enum MyExceptionTypeEnum {
 }
 
 export class MyException extends Error {
-  constructor(public type: MyExceptionTypeEnum, m: string) {
-    super(m);
+  constructor(msg: string, public type: MyExceptionTypeEnum) {
+    super(msg);
     Object.setPrototypeOf(this, MyException.prototype);
   }
 }
