@@ -2,8 +2,6 @@
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 project_folder_path := $(patsubst %/,%,$(dir $(mkfile_path)))
 
-# current_dir = $(shell pwd)
-
 list:
 	@echo "docker-init: init the docker image"
 	@echo "docker-build: build the project"
