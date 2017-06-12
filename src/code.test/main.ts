@@ -1,6 +1,7 @@
 
 import * as assert from 'assert';
-import { abc } from './../code/main';
+import { run } from '../code/main';
+
 
 // tslint:disable-next-line:variable-name
 const prepareToRun = (_self, tag: string) => {
@@ -17,22 +18,11 @@ export = function () {
 
   prepareToRun(this, '@abcd');
 
-  let input;
-  this.Given(/^the input is "([^"]*)"$/, (arg1) => {
-    input = arg1;
-  });
+  this.When(/^run$/, () => {
 
-  let act;
-  this.When(/^run the method getResult$/, () => {
+    run();
 
-    const obj = new abc();
-    act = obj.getResult(input);
-
-  });
-
-  this.Then(/^the result is "([^"]*)"$/, (exp) => {
-
-    assert.equal(act, exp);
+    assert.equal(true, true);
 
   });
 

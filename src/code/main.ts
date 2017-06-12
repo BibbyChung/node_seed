@@ -1,16 +1,7 @@
 import { AppHelper } from './common/appHelper';
 
-export class abc {
+export const run = () => {
 
-  getResult(arg: string) {
-    return arg + arg;
-  }
+  AppHelper.consoleWrite('test', 'test');
 
-}
-
-const obj = new abc();
-const r = obj.getResult('Bibby');
-AppHelper.consoleWrite('result', r);
-
-const rr = AppHelper.getUUID();
-AppHelper.consoleWrite('uuid',rr);
+};
