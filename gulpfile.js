@@ -40,9 +40,9 @@ let tsdCompiler = function (
     pathArr,
     tsconfigPath,
     targetPath
-    ) {
+) {
 
-    let tscP = ts.createProject(tsconfigPath, { 
+    let tscP = ts.createProject(tsconfigPath, {
         "isolatedModules": false,
     });
 
@@ -166,7 +166,7 @@ gulp.task('build', (cb) => {
             "run_cucumber",
         ],
         [
-            "ts_compile_dist", 
+            "ts_compile_dist",
             //"tsd_compile_dist"           
         ],
         cb
