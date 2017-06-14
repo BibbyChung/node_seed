@@ -1,4 +1,6 @@
+import * as uuidV1 from 'uuid/v1';
 let crypto = require('crypto');
+
 
 export class AppHelper {
 
@@ -8,6 +10,10 @@ export class AppHelper {
     console.log(obj);
     console.log(`======================`);
 
+  }
+
+  static getUUIDV1() {
+    return uuidV1();
   }
 
   static getUUID() {
