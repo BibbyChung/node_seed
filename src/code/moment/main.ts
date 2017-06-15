@@ -3,8 +3,10 @@ import { AppHelper } from '../common/appHelper';
 
 export let momentRun = () => {
 
+    let now = new Date();
+    let m = moment(now);
+
     //format
-    let m = moment();
     let dateISOFormat = m.format("YYYY-MM-DD HH:mm:ss")
     AppHelper.consoleWrite("dateISOFormat", dateISOFormat);
 
@@ -16,5 +18,12 @@ export let momentRun = () => {
     }
     let dateInfo = dateInfoArr.join(", ")
     AppHelper.consoleWrite("show weekday in the future", dateInfo);
+
+    //show uinx
+    const unixNow = m.unix();
+    AppHelper.consoleWrite('dateTime To unix', unixNow);
+
+    const unixToDateTime = moment.unix(unixNow).toDate();
+    AppHelper.consoleWrite('unixToDateTime', unixToDateTime);
 
 }
