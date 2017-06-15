@@ -26,4 +26,8 @@ export let momentRun = () => {
     const unixToDateTime = moment.unix(unixNow).toDate();
     AppHelper.consoleWrite('unixToDateTime', unixToDateTime);
 
+    //add seconds
+    const after1Hour = m.add(3600, 'seconds').toDate();
+    AppHelper.consoleWrite('after1Hour', after1Hour);
+
 }
