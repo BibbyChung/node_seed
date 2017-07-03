@@ -5,8 +5,8 @@ import { AppHelper } from './common/appHelper';
 
 export let testRun = () => {
 
-    //lodashRun();
-    momentRun();
+    lodashRun();
+    //momentRun();
     //MD5Run();
 
 }

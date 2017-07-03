@@ -4,10 +4,10 @@ import { AppHelper } from '../common/appHelper';
 export let lodashRun = () => {
 
     let users = [
-        { name: 'barney', age: 36, birthday: new Date(1981, 1, 20) },
-        { name: 'fred', age: 40, birthday: new Date(1933, 4, 3) },
-        { name: 'pebbles', age: 18, birthday: new Date(1990, 5, 10) },
-        { name: 'Mary', age: 36, birthday: new Date(1993, 6, 10) }
+        { name: 'barney', age: 36, cc: 2, birthday: new Date(1981, 1, 20) },
+        { name: 'fred', age: 40, cc: 1, birthday: new Date(1933, 4, 3) },
+        { name: 'pebbles', age: 18, cc: 1, birthday: new Date(1990, 5, 10) },
+        { name: 'Mary', age: 36, cc: 1, birthday: new Date(1993, 6, 10) }
     ];
 
     //map
@@ -64,7 +64,26 @@ export let lodashRun = () => {
         .value();
     AppHelper.consoleWrite("group", group);
 
+    //groupMultipleKeys
+    let groupMultipleKeys = _.chain(users)
+        .groupBy(a => [a.age, a.cc])
+        .map((value: any[], key: string) => {
+            return { key, value }
+        })
+        .value();
+    AppHelper.consoleWrite("groupMultipleKeys", groupMultipleKeys);
+
     //group-dictionary
+    let groupDic1 = _.chain(users)
+        .groupBy(a => a.age)
+        .map((v, k)=>{
+            return {
+                k, v
+            }
+        })
+        .value();
+    AppHelper.consoleWrite('groupDic1', groupDic1);
+
     let groupDic = _.chain(users)
         .groupBy(a => a.age) //return dictionary
         .value();
@@ -106,8 +125,9 @@ export let lodashRun = () => {
 
     //sum
     let totalAgeTotal = _.chain(users)
-        //.filter(a => false)
-        .sumBy(a => a.age)
+        .map(a=>a.age)
+        .sum()
+        //.sumBy(a => a.age)
         .value()
     AppHelper.consoleWrite("sum age", totalAgeTotal);
 
