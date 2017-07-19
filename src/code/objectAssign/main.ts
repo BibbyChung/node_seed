@@ -13,9 +13,10 @@ export let objectAssignRun = () => {
 		birthday: new Date("2010-10-10")
 	};
 
-	Object.assign(target, source);
-
-	AppHelper.consoleWrite("Object.assign", target);
+	const newObj = Object.assign({}, target, source);
+	AppHelper.consoleWrite("Object.assign", newObj);
+	AppHelper.consoleWrite("target", target);
+	AppHelper.consoleWrite('source', source);
 	//{ name: 'Molly', age: 18, birthday: 2010-10-10T00:00:00.000Z }
-
+	
 }

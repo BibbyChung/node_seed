@@ -3,7 +3,7 @@ import { collectionRun } from './collection/main';
 
 export let fun = () => {
 
-    //objectAssignRun();
-    collectionRun();
+    objectAssignRun();
+    //collectionRun();
 
 }
