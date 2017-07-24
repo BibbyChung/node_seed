@@ -24,7 +24,8 @@
 		"typescript": "^2.2.1",
 		"through2": "^2.0.3",
 		"tslint": "^5.2.0",
-		"tslint-config-airbnb": "^5.0.1"
+		"tslint-config-airbnb": "^5.0.1",
+		"nodemailer": "^4.0.1"
 
 	}
 }

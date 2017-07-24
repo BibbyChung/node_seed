@@ -18,9 +18,9 @@ export = function () {
 
   prepareToRun(this, '@abcd');
 
-  this.When(/^run$/, () => {
+  this.When(/^run$/, async () => {
 
-    run();
+    await run();
 
     assert.equal(true, true);
 
