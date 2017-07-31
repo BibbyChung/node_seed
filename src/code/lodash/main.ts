@@ -64,6 +64,15 @@ export let lodashRun = () => {
         .value();
     AppHelper.consoleWrite("group", group);
 
+    let group1 = _.chain(users)
+        .groupBy(a => a.age.toString().charAt(1))
+        .map((value: any[], key) => {
+            return { key, value }
+        })
+        //.map((value, key) => ({ key, value }))
+        .value();
+    AppHelper.consoleWrite("group1_first_char", group1);
+
     //groupMultipleKeys
     let groupMultipleKeys = _.chain(users)
         .groupBy(a => [a.age, a.cc])
