@@ -15,8 +15,8 @@ export = function () {
 
     prepareToRun(this, "@abcd");
 
-    this.Then(/^result$/, function () {
-        testRun();
+    this.Then(/^result$/, async function () {
+        await testRun();
     });
 
 }
