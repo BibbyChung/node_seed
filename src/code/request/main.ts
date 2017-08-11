@@ -53,6 +53,14 @@ class MyRequest {
 export let requestRun = async () => {
 
 
+  // GET /logstores/app_log？type=log&topic=groupA&from=1409529600&to=1409608800&query=error&line=20&offset=0 HTTP/1.1
+  // Authorization: <AuthorizationString>
+  // Date: Wed, 3 Sept. 2014 08:33:46 GMT
+  // Host: big-game.cn-hangzhou.log.aliyuncs.com
+  // x-log-bodyrawsize: 0
+  // x-log-apiversion: 0.4.0
+  // x-log-signaturemethod: hmac-sha1
+
 
 
 
@@ -72,13 +80,18 @@ export let requestRun = async () => {
 
   AppHelper.consoleWrite('DATE', DATE);
 
+  
 
+  const SignString = VERB + "\n"
+    + "\n"
+    + "\n"
+    + DATE + "\n"
+    + CanonicalizedLOGHeaders + "\n"
+    + CanonicalizedResource
 
-  const SignString = `${VERB}\n\n\n${DATE}\n${CanonicalizedLOGHeaders}\n${CanonicalizedResource}`;
+  AppHelper.consoleWrite('SignString', SignString)
 
-  AppHelper.consoleWrite('SignString', SignString);
-
-  //GET\n\n\nMon, 09 Nov 2015 06:11:16 GMT\nx-log-apiversion:0.6.0\nx-log-signaturemethod:hmac-sha1\n/logstores?logstoreName=&offset=0&size=1000
+   //GET\n\n\nMon, 09 Nov 2015 06:11:16 GMT\nx-log-apiversion:0.6.0\nx-log-signaturemethod:hmac-sha1\n/logstores?logstoreName=&offset=0&size=1000
 
   const accessKey = '';
   const secretKey = '';
