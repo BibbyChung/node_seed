@@ -21,7 +21,14 @@ export class AppHelper {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
+  }
 
+  static getHmacSha1(text, key){
+    return crypto.createHmac('sha1', key).update(text).digest('hex')
+  }
+
+  static getBase64(text){
+    return new Buffer(text).toString('base64')
   }
 
   static getRandomCode() {
