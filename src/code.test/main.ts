@@ -15,7 +15,7 @@ export = function () {
 
     prepareToRun(this, "@abcd");
 
-    this.Then(/^result$/, async function () {
+    this.Then(/^result$/, { timeout: 60 * 1000 }, async function () {
         await testRun();
     });
 
