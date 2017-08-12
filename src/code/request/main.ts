@@ -53,6 +53,11 @@ class MyRequest {
 export let requestRun = async () => {
 
 
+  // https://help.aliyun.com/document_detail/29012.html?spm=5176.doc29008.6.680.bubXZw
+  // https://help.aliyun.com/document_detail/29010.html?spm=5176.product28958.3.4.6rvMDZ
+  // https://help.aliyun.com/document_detail/29029.html?spm=5176.doc29074.6.697.oDOOOA
+
+
   // GET /logstores/app_log？type=log&topic=groupA&from=1409529600&to=1409608800&query=error&line=20&offset=0 HTTP/1.1
   // Authorization: <AuthorizationString>
   // Date: Wed, 3 Sept. 2014 08:33:46 GMT
@@ -62,25 +67,24 @@ export let requestRun = async () => {
   // x-log-signaturemethod: hmac-sha1
 
 
-
-
-
   const startAt = moment('2017-08-10').unix();
   const endAt = moment('2017-08-11').unix();
   const host = 'https://bmqb-production.cn-shanghai.log.aliyuncs.com';
   const query = 'mobile';
   const resource = `/logstores/bmqb-nginx-access?type=log&topic=groupA&from=${startAt}&to=${endAt}&query=${query}`;
+
   const url = `${host}${resource}`;
 
 
   const VERB = "GET";
   const DATE = (new Date()).toUTCString();// moment().toDate().toString();
   const CanonicalizedLOGHeaders = `x-log-apiversion:0.6.0\nx-log-bodyrawsize:0\nx-log-signaturemethod:hmac-sha1`;
+
   const CanonicalizedResource = resource;
 
   AppHelper.consoleWrite('DATE', DATE);
 
-  
+
 
   const SignString = VERB + "\n"
     + "\n"
@@ -91,7 +95,7 @@ export let requestRun = async () => {
 
   AppHelper.consoleWrite('SignString', SignString)
 
-   //GET\n\n\nMon, 09 Nov 2015 06:11:16 GMT\nx-log-apiversion:0.6.0\nx-log-signaturemethod:hmac-sha1\n/logstores?logstoreName=&offset=0&size=1000
+  //GET\n\n\nMon, 09 Nov 2015 06:11:16 GMT\nx-log-apiversion:0.6.0\nx-log-signaturemethod:hmac-sha1\n/logstores?logstoreName=&offset=0&size=1000
 
   const accessKey = '';
   const secretKey = '';
