@@ -1,7 +1,9 @@
 import { AppHelper } from './common/appHelper';
+import { RxjsExample } from './rxjsExample';
 
 export const run = () => {
 
-  AppHelper.consoleWrite('test', 'test');
+  const re = new RxjsExample();
+  re.run();
 
 };
