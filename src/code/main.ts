@@ -1,9 +1,9 @@
 import { AppHelper } from './common/appHelper';
 import { RxjsExample } from './rxjsExample';
 
-export const run = () => {
+export const run = async () => {
 
   const re = new RxjsExample();
-  re.run();
+  await re.run();
 
 };
