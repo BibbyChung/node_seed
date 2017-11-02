@@ -139,6 +139,7 @@ export class RxjsExample {
     //   const obs3 = Observable.interval(200).take(1);
     //   const obsResult = Observable.merge(obs1, obs2, obs3);
     //   // const obsResult = obs1.merge(obs2, obs3);
+    //   // const obsResult = Observable.from([obs1, obs2, obs3]).mergeAll();
     //   obsResult.subscribe(new MyObserver('merge'));
     // };
     // log('observable => merge', run10);
