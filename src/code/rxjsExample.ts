@@ -3,6 +3,8 @@ import {
   ReplaySubject, AsyncSubject, Scheduler,
 } from 'rxjs/Rx';
 
+import { map, take, filter } from 'rxjs/operators';
+
 // import { Observer } from 'rxjs/Observer';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/from';
@@ -426,6 +428,31 @@ export class RxjsExample {
     //   result.subscribe(new MyObserver());
     // };
     // log('observable => map -> side-effect', run31);
+
+    // const run32 = () => {
+    //   const op = obs => obs
+    //     .take(10)
+    //     .filter(a => a % 2 === 1)
+    //     .map(a => a + 1);
+
+    //   const myObs = Observable.interval(10);
+    //   myObs.let(op)
+    //     .subscribe(new MyObserver());
+    // };
+    // log('observable => let ', run32);
+
+    const run33 = () => {
+      const op = (obs: Observable<number>) => obs.pipe(
+        take(10),
+        filter(a => a % 2 === 1),
+        map(a => a + 1),
+      );
+
+      const myObs = Observable.interval(10);
+      myObs.let(op)
+        .subscribe(new MyObserver());
+    };
+    log('observable => pipe, let ', run33);
 
     await this.sleep(1500);
 
