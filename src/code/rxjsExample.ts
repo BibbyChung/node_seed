@@ -441,18 +441,49 @@ export class RxjsExample {
     // };
     // log('observable => let ', run32);
 
-    const run33 = () => {
-      const op = (obs: Observable<number>) => obs.pipe(
-        take(10),
-        filter(a => a % 2 === 1),
-        map(a => a + 1),
-      );
+    // const run33 = () => {
+    //   const op = (obs: Observable<number>) => obs.pipe(
+    //     take(10),
+    //     filter(a => a % 2 === 1),
+    //     map(a => a + 1),
+    //   );
 
-      const myObs = Observable.interval(10);
-      myObs.let(op)
-        .subscribe(new MyObserver());
-    };
-    log('observable => pipe, let ', run33);
+    //   const myObs = Observable.interval(10);
+    //   myObs.let(op)
+    //     .subscribe(new MyObserver());
+    // };
+    // log('observable => pipe, let ', run33);
+
+    // const run34 = () => {
+    //   const search = new BehaviorSubject('searchInfo');
+    //   const grid = new BehaviorSubject('grid orderby');
+    //   const pagination = new BehaviorSubject('currentIndex 0');
+
+    //   // Observable.zip(search, grid, pagination, (a, b, c) => `${a}-${b}-${c}`)
+    //   //   .subscribe(new MyObserver('CRUD -> zip'));
+
+    //   const criteriaArr = [];
+    //   const bsArr = [search, grid, pagination];
+    //   Observable.from(bsArr)
+    //     .mergeAll()
+    //     .subscribe((v) => {
+    //       criteriaArr.push(v);
+    //       if (criteriaArr.length >= 3) {
+    //         const dataProvider = new BehaviorSubject(criteriaArr);
+    //         dataProvider.subscribe(new MyObserver('CRUD'));
+    //       }
+    //     });
+
+    //   pagination.next('currentIndex 2');
+
+    //   setTimeout(() => {
+    //     pagination.next('currentIndex 3');
+    //   }, 100);
+
+    // };
+    // log('observable => BehaviorSubject ', run34);
+
+
 
     await this.sleep(1500);
 
