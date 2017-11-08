@@ -457,36 +457,45 @@ export class RxjsExample {
     // const run34 = () => {
     //   const search = new BehaviorSubject('searchInfo');
     //   const grid = new BehaviorSubject('grid orderby');
-    //   const pagination = new BehaviorSubject('currentIndex 0');
+    //   const pagination = new BehaviorSubject('currentIndex-0');
 
-    //   // Observable.zip(search, grid, pagination, (a, b, c) => `${a}-${b}-${c}`)
-    //   //   .subscribe(new MyObserver('CRUD -> zip'));
+    //   const fakeHttpGet = (params: string[]) => {
+    //     return Observable.create((ob) => {
+    //       setTimeout(() => {
+    //         ob.next(params.join(',') + ' => ajaxReturnObj');
+    //         ob.complete();
+    //       }, 10);
+    //     });
+    //   };
 
     //   const criteriaArr = [];
     //   const bsArr = [search, grid, pagination];
     //   Observable.from(bsArr)
     //     .mergeAll()
-    //     .subscribe((v) => {
+    //     .mergeMap((v, index) => {
     //       criteriaArr.push(v);
-    //       if (criteriaArr.length >= 3) {
-    //         const dataProvider = new BehaviorSubject(criteriaArr);
-    //         dataProvider.subscribe(new MyObserver('CRUD'));
+    //       if (index >= 3) {
+    //         return fakeHttpGet(criteriaArr);
+    //       }
+    //       return Observable.of('');
+    //     })
+    //     .subscribe((v) => {
+    //       if (v) {
+    //         console.log(v);
     //       }
     //     });
 
-    //   pagination.next('currentIndex 2');
-
-    //   setTimeout(() => {
-    //     pagination.next('currentIndex 3');
-    //   }, 100);
+    //   for (const i of [1, 2, 3, 4, 5]) {
+    //     setTimeout(() => {
+    //       pagination.next(`currentIndex-${i}`);
+    //     }, 100 * i);
+    //   }
 
     // };
     // log('observable => BehaviorSubject ', run34);
 
 
-
     await this.sleep(1500);
-
   }
 
   async sleep(time: number) {
