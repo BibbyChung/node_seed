@@ -7,9 +7,9 @@ import { AppHelper } from './common/appHelper';
 
 export let testRun = async () => {
 
-    //lodashRun();
-    //momentRun();
-    //MD5Run();
-    await requestRun();
+    lodashRun();
+    // momentRun();
+    // MD5Run();
+    // await requestRun();
 
 }
