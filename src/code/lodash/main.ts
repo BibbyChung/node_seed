@@ -1,3 +1,4 @@
+import { AppHelper } from './../common/appHelper';
 import * as _ from "lodash";
 import { AppHelper } from '../common/appHelper';
 
@@ -9,6 +10,18 @@ export let lodashRun = () => {
         { name: 'pebbles', age: 18, cc: 1, birthday: new Date(1990, 5, 10) },
         { name: 'Mary', age: 36, cc: 1, birthday: new Date(1993, 6, 10) }
     ];
+
+    // distinct
+    // const distinct = _.chain(users)
+    //     .unionBy(a => a.age)
+    //     .value();
+    // AppHelper.consoleWrite('distinct', distinct);
+
+    // const distinct1 = _.chain(users)
+    //     .groupBy(a => a.age)
+    //     .map((v, k) => v[0])
+    //     .value();
+    // AppHelper.consoleWrite('distinct1', distinct1);
 
     // //map
     // let userName = _.chain(users)
@@ -34,15 +47,15 @@ export let lodashRun = () => {
     // AppHelper.consoleWrite("oldUsers", oldUsers);
 
     //sort (small to big)
-    let sortUsers = _.chain(users)
-        .sortBy(a => -a.birthday)
-        .value();
-    AppHelper.consoleWrite("sortUsers", sortUsers);
+    // let sortUsers = _.chain(users)
+    //     .sortBy(a => -a.birthday)
+    //     .value();
+    // AppHelper.consoleWrite("sortUsers", sortUsers);
 
-    let sortUsers2 = _.chain(users)
-        .sortBy(a => -a.age, b => b.birthday)
-        .value();
-    AppHelper.consoleWrite("sortUsers => esc, desc", sortUsers2);
+    // let sortUsers2 = _.chain(users)
+    //     .sortBy(a => -a.age, b => b.birthday)
+    //     .value();
+    // AppHelper.consoleWrite("sortUsers => esc, desc", sortUsers2);
 
 
     // //first
@@ -58,7 +71,7 @@ export let lodashRun = () => {
     // AppHelper.consoleWrite("first user is empty(boolean)", firstUserEmpty == undefined)
 
 
-    // //group
+    //group
     // let group = _.chain(users)
     //     .groupBy(a => a.age)
     //     .map((value: any[], key) => {
