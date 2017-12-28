@@ -4,24 +4,24 @@ import { fun } from "./../code/main"
 
 let prepareToRun = (_self, tag: string) => {
 
-    _self.Before({ tags: [tag] }, async (scenario: any) => {
+  _self.Before({ tags: [tag] }, async (scenario: any) => {
 
-    });
-    _self.After({ tags: [tag] }, async (scenario) => {
+  });
+  _self.After({ tags: [tag] }, async (scenario) => {
 
-    });
+  });
 };
 
 export = function () {
 
-    prepareToRun(this, "@abcd");
+  prepareToRun(this, "@abcd");
 
-    this.Then(/^test$/, function () {
+  this.Then(/^test$/, async function () {
 
-        fun();
-        assert.equal(1,1);
+    await fun();
+    assert.equal(1, 1);
 
-    });
+  });
 
 }
 
