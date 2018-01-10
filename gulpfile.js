@@ -149,7 +149,7 @@ gulp.task('tsd_compile_dist', () => {
 });
 
 gulp.task("run_cucumber", shell.task([
-    'cucumber.js test/**/*.feature --format progress'
+    './node_modules/cucumber/bin/cucumber.js test/**/*.feature --format progress'
     //'cucumber.js --format pretty'
 ]));
 
