@@ -10,6 +10,6 @@ export let testRun = async () => {
     // lodashRun();
     // momentRun();
     // MD5Run();
-    await requestRun();
+    // await requestRun();
 
 }
